@@ -1,11 +1,18 @@
 import { GetStaticProps, GetStaticPropsContext } from 'next';
 import Link from 'next/link';
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import useSWR from 'swr'
 
 
 type ProductsProps = {
   products: any[];
 }
+
+
+
+
+
+
 // chạy client
 const ProductPage = ({products}: ProductsProps) => {
   console.log('Product page client');
@@ -22,20 +29,20 @@ const ProductPage = ({products}: ProductsProps) => {
 
 
 //chạy server
-export const getStaticProps: GetStaticProps<ProductsProps> = async (
-  context: GetStaticPropsContext
-) => {
-  console.log('Get static props - server');
-  const data = await (await fetch(`http://localhost:8008/api/products`)).json()
-  console.log('data', data);
-  if(!data) return {
-    notFound: true
-  }
-  return {
-    props: {
-      products: data
-    }
-  }
+// export const getStaticProps: GetStaticProps<ProductsProps> = async (
+//   context: GetStaticPropsContext
+// ) => {
+//   console.log('Get static props - server');
+//   const data = await (await fetch(`http://localhost:8008/api/products`)).json()
+//   console.log('data', data);
+//   if(!data) return {
+//     notFound: true
+//   }
+//   return {
+//     props: {
+//       products: data
+//     }
+//   }
   
-}
+// }
 export default ProductPage
