@@ -72,7 +72,7 @@ const Home: NextPage = () => {
         </a>
       </footer>
       {data.map((user: { email: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined },index: Key | null | undefined) => <div key={index}>{user.email}</div>)}
-      <button onClick={() => register()}>Register</button>
+      <button onClick={() => register({email: "user2@gmail.com", password: "123456"})}>Register</button>
 
     </div>
   )

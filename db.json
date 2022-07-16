@@ -38,6 +38,11 @@
       "email": "user1@gmail.com",
       "password": "123456",
       "id": 5
+    },
+    {
+      "email": "user2@gmail.com",
+      "password": "$2a$10$3ZKGKsAdUHr230LA9tCEcu2xmDn3V6Oh5ITfJL0/y5Izu4/0ppPV6",
+      "id": 6
     }
   ]
 }
