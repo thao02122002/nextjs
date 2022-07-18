@@ -7,10 +7,11 @@ import { useAuth } from '../hook/auth'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
-  const {data, error, register} = useAuth()
+  const {data, error, register, login} = useAuth()
   if(error) return <div>fail to load</div>
   if(!data) return < div>Loading...</div>
 
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -73,6 +74,7 @@ const Home: NextPage = () => {
       </footer>
       {data.map((user: { email: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined },index: Key | null | undefined) => <div key={index}>{user.email}</div>)}
       <button onClick={() => register({email: "user2@gmail.com", password: "123456"})}>Register</button>
+      <button onClick={() => login({email: "user2@gmail.com", password: "123456"})}>SIGNIN</button>
 
     </div>
   )

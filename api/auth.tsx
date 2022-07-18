@@ -6,3 +6,6 @@ export const signup = (user: any) => {
 export const list = (url: any) => {
     return instance.get(url);
 }
+export const signin = (user: any) => {
+    return instance.post("/users", user)
+}
