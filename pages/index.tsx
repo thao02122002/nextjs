@@ -1,9 +1,10 @@
 
+import Link from 'next/link';
 import useProducts from '../hook/use-product'
 import styles from '../styles/Home.module.css'
 
 const Home = () => {
-  const { data: products, error, create, remove, update } = useProducts()
+  const { data: products, error, remove, update } = useProducts()
   console.log(products);
 // 
 
@@ -21,12 +22,17 @@ const Home = () => {
               products && products.map((item: any,index: any)=>{
                 return (<div key={index}>{item.name}
                 <button onClick={() => remove(item.id)}>Delete</button>
-                <button onClick={() => update({id:15, name: "product update15"})}>Update</button>
+                <Link href={`/products/edit/${item.id}`}><button onClick={() => update({id:17, name: "product 17"})}>Update</button></Link>
+                
                 </div>
                 )
               })
             }
-      <button onClick={() => create({ id: 17, name: "Product 17" })}>Create</button>
+            <Link href={`/products/add`} >
+            {/* <button onClick={() => create({ id: 1, name: "Product 1" })}>Create</button> */}
+            <button>Create</button>
+            </Link>
+      
 
     </div>
     
